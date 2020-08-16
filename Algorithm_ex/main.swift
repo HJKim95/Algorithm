@@ -35,5 +35,46 @@ print("50원: ", resultArr[2])
 print("10원: ", resultArr[3])
  */
 
-//MARK: greedy2_p.
+//MARK: greedy2_p.92
+/*
+let readLines = readLine()!
+let lineArr = readLines.components(separatedBy: " ")
+let n = lineArr[0]
+let m = lineArr[1]
+let k = lineArr[2]
 
+let readLines2 = readLine()!
+let lineArr2 = readLines2.components(separatedBy: " ")
+var numArr = [Int]()
+for num in lineArr2 {
+    numArr.append(Int(num)!)
+}
+
+let sortedNum = numArr.sorted(by: >)
+var indexCount = 0
+var index = 0
+var count = 0
+var goNext = false
+var resultArr = [Int]()
+while count < Int(m)! {
+    resultArr.append(sortedNum[index])
+    indexCount += 1
+    count += 1
+    if goNext {
+        goNext = false
+        indexCount = 0
+        index = 0
+    }
+    if indexCount == Int(k)! {
+        indexCount = 0
+        index += 1
+        goNext = true
+    }
+}
+print(resultArr)
+var resultSum = 0
+for num in resultArr {
+    resultSum += num
+}
+print(resultSum)
+ */
