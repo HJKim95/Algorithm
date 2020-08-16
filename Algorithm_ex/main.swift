@@ -8,7 +8,7 @@
 
 import Foundation
 
-//MARK: greedy1_p.87
+//MARK: -greedy1_p.87
 /*
 let readLines = readLine()!
 var returns = Int(readLines)!
@@ -35,7 +35,7 @@ print("50원: ", resultArr[2])
 print("10원: ", resultArr[3])
  */
 
-//MARK: greedy2_p.92
+//MARK: -greedy2_p.92
 /*
 let readLines = readLine()!
 let lineArr = readLines.components(separatedBy: " ")
@@ -78,3 +78,26 @@ for num in resultArr {
 }
 print(resultSum)
  */
+
+//MARK: -greedy3_p.96
+/*
+let readLines = readLine()!
+let lineArr = readLines.components(separatedBy: " ")
+
+var arr = [Int]()
+var maxArr = [Int]()
+
+for _ in 0..<Int(lineArr[0])! {
+    let readLines2 = readLine()!
+    let lineArr2 = readLines2.components(separatedBy: " ")
+    for i in lineArr2 {
+        arr.append(Int(i)!)
+        if arr.count == lineArr2.count {
+            maxArr.append(arr.min()!)
+            arr.removeAll()
+        }
+    }
+}
+print(maxArr.max()!)
+ */
+
