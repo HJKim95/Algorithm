@@ -101,3 +101,26 @@ for _ in 0..<Int(lineArr[0])! {
 print(maxArr.max()!)
  */
 
+//MARK: -greedy4
+/*
+let readLines = readLine()!
+let lineArr = readLines.components(separatedBy: " ")
+var N = Int(lineArr[0])!
+let K = Int(lineArr[1])!
+var count = 0
+while true {
+    if N % K == 0 {
+        N = N / K
+        count += 1
+    }
+    else {
+        N -= 1
+        count += 1
+    }
+    if N == 1 {
+        break
+    }
+}
+print(count)
+*/
+
