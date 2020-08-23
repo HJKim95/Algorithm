@@ -124,3 +124,54 @@ while true {
 print(count)
 */
 
+//MARK: -Guhyun1_p.110
+/*
+let readLines = readLine()!
+let n = Int(readLines)!
+let readLines2 = readLine()!
+let lineArr = readLines2.components(separatedBy: " ")
+var x = 1
+var y = 1
+
+for direction in lineArr {
+    switch direction {
+    case "L":
+        if y != 1 {
+            y -= 1
+        }
+    case "R":
+        if y != n {
+            y += 1
+        }
+    case "U":
+        if x != 1 {
+            x -= 1
+        }
+    case "D":
+        if x != n {
+            x += 1
+        }
+    default:
+        print("direction error")
+    }
+}
+
+print(x, y)
+*/
+
+//MARK: -Guhyun2_p.113
+let readLines = readLine()!
+let n = Int(readLines)!
+var count = 0
+for i in 0..<n+1 {
+    for j in 0..<60 {
+        for k in 0..<60 {
+            let stringTime = "\(i)\(j)\(k)"
+            if stringTime.contains("3") {
+                count += 1
+            }
+        }
+    }
+}
+print(count)
+
