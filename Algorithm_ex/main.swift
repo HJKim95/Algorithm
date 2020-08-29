@@ -160,6 +160,7 @@ print(x, y)
 */
 
 //MARK: -Guhyun2_p.113
+/*
 let readLines = readLine()!
 let n = Int(readLines)!
 var count = 0
@@ -174,4 +175,83 @@ for i in 0..<n+1 {
     }
 }
 print(count)
+*/
 
+//MARK: -Guhyun3_p.115
+/*
+let col = ["a","b","c","d","e","f","g","h"]
+let row = [1,2,3,4,5,6,7,8]
+
+let readLines = readLine()!
+let readCol = String(readLines.first!)
+let readRow = Int(String(readLines.last!))!
+
+var colIndex = 0
+let rowIndex = readRow - 1
+for i in 0..<col.count {
+    if col[i] == readCol {
+        colIndex = i
+    }
+}
+
+var count = 0
+
+let colSum = [2,2,-2,-2,1,1,-1,-1,1,-1,1,-1,2,-2,2,-2]
+
+
+for index in 0..<8 {
+    let plusCol = colIndex + colSum[index]
+    let plusRow = rowIndex + colSum[index+8]
+    if plusCol > -1 && plusRow > -1 {
+        if plusCol < 8 && plusRow < 8 {
+            count += 1
+        }
+    }
+    
+}
+
+print(count)
+*/
+
+//MARK: -Guhyun4_p.118
+//
+//let readLines = readLine()!
+//let lineArr = readLines.components(separatedBy: " ")
+//let row = Int(lineArr[0])!
+//let col = Int(lineArr[1])!
+//
+//let readLines2 = readLine()!
+//let lineArr2 = readLines2.components(separatedBy: " ")
+//var a = Int(lineArr2[0])!
+//var b = Int(lineArr2[1])!
+//let direction = Int(lineArr2[2])!
+//
+//var totalArr = [[Int]]()
+//for _ in 0..<row {
+//    let readLines = readLine()!
+//    let lineArrs = readLines.components(separatedBy: " ")
+//    var arr = [Int]()
+//    for j in 0..<lineArrs.count {
+//        arr.append(Int(lineArrs[j])!)
+//    }
+//    totalArr.append(arr)
+//}
+//
+//print(totalArr)
+//var count = 0
+//while true {
+//    if direction == 0 {
+//        a -= 1
+//        if totalArr[a][b] == 1 {
+//            b -= 1
+//            if totalArr[a][b] == 0 {
+//                count += 1
+//            }
+//        }
+//        else {
+//            count += 1
+//            b -= 1
+//        }
+//
+//    }
+//}
