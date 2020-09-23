@@ -255,3 +255,360 @@ print(count)
 //
 //    }
 //}
+
+//func practiceDFS(n lastNode: Int, edges: [(Int, Int)]) -> Int {
+//    var edgeInfo = [Int: Array<Int>]()
+//
+//    for edge in edges {
+//        if var array = edgeInfo[edge.0] {
+//            array.append(edge.1)
+//            edgeInfo[edge.0] = array
+//        }
+//        else {
+//            edgeInfo[edge.0] = [edge.1]
+//        }
+//    }
+//
+//    var result = 0
+//    print(edgeInfo)
+//    func dfs(node: Int, visited: [Int]) {
+//        print(node,visited)
+//        guard node != lastNode else {
+////            print(node, visited)
+//            print("**********finished**********")
+//            result += 1
+//            return
+//        }
+//        guard let neighbors = edgeInfo[node] else {return}
+//        for edge in neighbors {
+//            guard visited.contains(edge) == false else {continue}
+////            print(edge,visited + [edge])
+//            dfs(node: edge, visited: visited + [edge])
+//        }
+//    }
+//
+//    dfs(node: 1, visited: [1])
+//
+//    return result
+//}
+//
+//print(practiceDFS(n: 5, edges: [(1, 2), (1, 3), (1, 4), (2, 1), (2, 4), (2, 5), (3, 2), (3, 4), (4, 5)]))
+
+
+//extension Array {
+//    var powerset: [[Element]] {
+//        guard count > 0 else {
+//            return [[]]
+//        }
+//
+//        // tail contains the whole array BUT the first element
+//        let tail = Array(self[1..<endIndex])
+//
+//        // head contains only the first element
+//        let head = self[0]
+//
+//        // computing the tail's powerset
+//        let withoutHead = tail.powerset
+//
+//        // mergin the head with the tail's powerset
+//        let withHead = withoutHead.map { $0 + [head] }
+//
+//        // returning the tail's powerset and the just computed withHead array
+//        return withHead + withoutHead
+//    }
+//}
+//
+//func getPowerset(arr: Array<Character>) -> [[Character]] {
+//
+//    if arr.count == 0 {
+//        return [[]]
+//    }
+//
+//    let head = arr[0]
+//    let tail = Array(arr[1..<arr.endIndex])
+//
+//    let withoutHead = getPowerset(arr: tail)
+//    let withHead = withoutHead.map { $0 + [head]}
+//
+//    return withHead + withoutHead
+//}
+//
+////print(getPowerset(arr: ["a","b", "c", "d"]))
+//
+//var orders = ["xyz", "xwy", "wxa"]
+//orders = orders.map { $0.uppercased() }
+//let course = [2,3,4]
+//
+//var dict2 = [String:Int]()
+//
+//for i in orders {
+//    let arr = Array(i)
+//    print(arr)
+//    for i in getPowerset(arr: arr) {
+//        let sorts = String(i.sorted())
+//        if dict2[sorts] == nil {
+//            dict2[sorts] = 1
+//        }
+//        else {
+//            dict2[sorts]! += 1
+//        }
+//    }
+//    dict2.removeValue(forKey: "")
+//    print(dict2)
+//}
+//
+//var resultMax = [Int:Int]()
+//
+//for i in course {
+//    for key in dict2.keys {
+//        if key.count == i {
+//            if resultMax[i] == nil {
+//                resultMax[i] = dict2[key]!
+//            }
+//            else {
+//                if dict2[key]! > resultMax[i]! {
+//                    resultMax[i] = dict2[key]!
+//                }
+//            }
+//        }
+//    }
+//}
+//
+//print(resultMax)
+//
+//var result = [String]()
+//for i in course {
+//
+//    for key in dict2.keys {
+//        if key.count == i {
+//            if dict2[key] == resultMax[i] && resultMax[i]! > 1 {
+//                result.append(key)
+//            }
+//        }
+//    }
+//}
+//
+//print(result)
+
+//let graph = [[], [2,3,8], [1,7], [1,4,5], [3,5], [3,4],[7],[2,6,8],[1,7]]
+//
+//var visited = Array(repeating: false, count: graph.count)
+//
+//func dfs(v: Int) {
+//    visited[v] = true
+//    print(v, "end ' '")
+//    for i in graph[v] {
+//        if !visited[i] {
+//            dfs(v: i)
+//        }
+//    }
+//}
+//
+////dfs(v: 1)
+//
+//public struct Queue<T> {
+//    fileprivate var array = [T]()
+//
+//    public var isEmpty: Bool {
+//        return array.isEmpty
+//    }
+//
+//    public var count: Int {
+//        return array.count
+//    }
+//
+//    public mutating func enqueue(_ element: T) {
+//        array.append(element)
+//    }
+//
+//    public mutating func dequeue() -> T? {
+//        if isEmpty {
+//            return nil
+//        }
+//        else {
+//            return array.removeFirst()
+//        }
+//    }
+//
+//    public var front: T? {
+//        return array.first
+//    }
+//}
+//
+//var visited2 = Array(repeating: false, count: graph.count)
+//
+//var queue = Queue<Int>()
+//
+//func bfs(start: Int) {
+//    queue.enqueue(start)
+//
+//    visited2[start] = true
+//    while !queue.isEmpty {
+//        let v = queue.front
+//        queue.dequeue()
+//        print(v!, "end ' '", queue)
+//        for i in graph[v!] {
+//            if !visited2[i] {
+//                queue.enqueue(i)
+//                visited2[i] = true
+//            }
+//        }
+//    }
+//}
+//
+////bfs(start: 1)
+//
+//
+////let miro = [[1,0,1,0,1,0], [1,1,1,1,1,1], [0,0,0,0,0,1], [1,1,1,1,1,1], [1,1,1,1,1,1]]
+//
+//let miro = [[1,1,1],[1,1,1],[1,1,1]]
+//
+//let dx = [-1,1,0,0]
+//let dy = [0,0,-1,1]
+//
+//var queueArr = [[Int]]()
+//
+//var x = 0
+//var y = 0
+//
+//func bfs() {
+//    var newGraph = miro
+//    if queueArr.count > 0 {
+//        queueArr.removeFirst()
+//    }
+//    queueArr.append([x,y])
+//
+//    while queueArr.count > 0 {
+//
+//        x = queueArr.first![0]
+//        y = queueArr.first![1]
+//        queueArr.removeFirst()
+//        for i in 0..<4 {
+//            let nx = x + dx[i]
+//            let ny = y + dy[i]
+////            print(nx,ny)
+//            if nx < 0 || ny < 0 || nx >= miro.count || ny >= miro[0].count {
+//                continue
+//            }
+//            if newGraph[nx][ny] == 0 {
+//                continue
+//            }
+//
+//            if newGraph[nx][ny] == 1 {
+//                newGraph[nx][ny] = newGraph[x][y] + 1
+//                queueArr.append([nx,ny])
+//                print(queueArr)
+//            }
+//        }
+////        print(newGraph)
+//    }
+//
+//}
+
+//bfs()
+
+//let readline = readLine()!
+//let comp = readline.components(separatedBy: " ")
+//let n = Int(comp[0])! //4
+//let m = Int(comp[1])! //4
+//let k = Int(comp[2])! //2
+//let x = Int(comp[3])! //1
+//
+//var graph = Array(repeating: [], count: n+1)
+//
+//for _ in 0..<m {
+//    let readline2 = readLine()!
+//    let comp2 = readline2.components(separatedBy: " ")
+//    graph[Int(comp2[0])!].append(Int(comp2[1])!)
+//}
+//
+//var dist = Array(repeating: -1, count: n+1)
+//dist[x] = 0
+//
+//var queueArr = [Int]()
+//queueArr.append(x)
+//
+//while !queueArr.isEmpty {
+//    let now = queueArr.first
+//    print(now)
+//    queueArr.removeFirst()
+//
+//    for next_node in graph[now!] {
+//        print(next_node)
+//        if dist[next_node as! Int] == -1 {
+//            dist[next_node as! Int] = dist[now!] + 1
+//            queueArr.append(next_node as! Int)
+//        }
+//    }
+//}
+//
+//print(dist)
+
+
+//var test = [[3, 0, 0, 0], [2, 0, 0, 2], [1, 0, 2, 0]]
+
+
+//----------------------------------------------
+//let readline = readLine()!
+//let comp = readline.components(separatedBy: " ")
+//let n = Int(comp[0])!
+//let k = Int(comp[1])!
+//
+//var graph = Array(repeating: [], count: n)
+//var data = [[Int]]()
+//for i in 0..<n {
+//    let readline2 = readLine()!
+//    let comp2 = readline2.components(separatedBy: " ")
+//    var arr = [Int]()
+//    for j in 0..<comp2.count {
+//        arr.append(Int(comp2[j])!)
+//        if Int(comp2[j])! != 0 {
+//            data.append([Int(comp2[j])!, 0, i ,j])
+//        }
+//    }
+//    graph[i] = arr
+//}
+//
+//let readline3 = readLine()!
+//let comp3 = readline3.components(separatedBy: " ")
+//let time = Int(comp3[0])!
+//let x = Int(comp3[1])!
+//let y = Int(comp3[2])!
+////print(graph)
+////print(data)
+//let sortedArray = data.sorted { ($0[0]) < ($1[0]) }
+////print(sortedArray)
+//
+//var queArr = sortedArray
+//
+//let dx = [-1,0,1,0]
+//let dy = [0,1,0,-1]
+//
+//while !queArr.isEmpty {
+//    let virus = queArr.first![0]
+//    let s = queArr.first![1]
+//    let x = queArr.first![2]
+//    let y = queArr.first![3]
+//    queArr.removeFirst()
+//
+//    if s == time {
+//        break
+//    }
+//
+//    for i in 0..<4 {
+//        // 상하좌우 이동
+//        let nx = x + dx[i]
+//        let ny = y + dy[i]
+//
+//        if nx >= 0 && nx < n && ny >= 0 && ny < n {
+//            if graph[nx][ny] as! Int == 0 {
+//                graph[nx][ny] = virus
+//                queArr.append([virus, s+1, nx,ny])
+//            }
+//        }
+//    }
+//}
+//
+//print(graph[x-1][y-1])
+
+
