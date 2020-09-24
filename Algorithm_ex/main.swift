@@ -611,4 +611,99 @@ print(count)
 //
 //print(graph[x-1][y-1])
 
+func binarySearch(array: Array<Int>, target: Int, start: Int, end: Int) -> Int {
+    if start > end {
+        return -1
+    }
+    let mid = (start + end) / 2
+    if (mid == 0 || target > array[mid - 1]) && array[mid] == target {
+        return mid
+    }
+    
+    else if array[mid] >= target {
+        return binarySearch(array: array, target: target, start: start, end: mid - 1)
+    }
+    else {
+        return binarySearch(array: array, target: target, start: mid + 1, end: end)
+    }
+}
+
+//let arr = [-15,-4,3,8,9,13,15]
+//var start = 0
+//var end = arr.count - 1
+//
+//while start <= arr.count - 1 {
+//    let mid = (start + end) / 2
+//    if end - start == 2 && arr[mid] != mid {
+//        print(-1)
+//        break
+//    }
+//    if arr[mid] > mid {
+//        end = mid - 1
+//    }
+//    else if arr[mid] < mid {
+//        start = mid + 1
+//    }
+//    else {
+//        print(mid)
+//        break
+//    }
+//}
+
+// ------------------------------------------------------------------------------------
+//func combinations<T>(source: [T], takenBy : Int) -> [[T]] {
+//    if(source.count == takenBy) {
+//        return [source]
+//    }
+//
+//    if(source.isEmpty) {
+//        return []
+//    }
+//
+//    if(takenBy == 0) {
+//        return []
+//    }
+//
+//    if(takenBy == 1) {
+//        return source.map { [$0] }
+//    }
+//
+//    var result : [[T]] = []
+//
+//    let rest = Array(source.suffix(from: 1))
+//    let subCombos = combinations(source: rest, takenBy: takenBy - 1)
+//    result += subCombos.map { [source[0]] + $0 }
+//    result += combinations(source: rest, takenBy: takenBy)
+//    return result
+//}
+//
+//let readline = readLine()!
+//let comp = readline.components(separatedBy: " ")
+//let n = Int(comp[0])!
+//let count = Int(comp[1])!
+//var spots = [Int]()
+//for _ in 0..<n {
+//    let loc = Int(readLine()!)!
+//    spots.append(loc)
+//}
+//let numbers = spots
+//let combi = combinations(source: numbers, takenBy: count)
+//var result = 0
+//for condition in combi {
+//    var minimum = Int.max
+//    for j in 0..<condition.count - 1 {
+//        let sortedCondition = condition.sorted()
+//        let dist = sortedCondition[j+1] - sortedCondition[j]
+//        if dist < minimum {
+//            minimum = dist
+//        }
+//        if j == condition.count - 2 {
+//            if minimum > result {
+//                result = minimum
+//            }
+//        }
+//    }
+//}
+//
+//print(result)
 
