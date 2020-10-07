@@ -706,4 +706,49 @@ func binarySearch(array: Array<Int>, target: Int, start: Int, end: Int) -> Int {
 //}
 //
 //print(result)
+//-------
+//let readline = readLine()!
+//let comp = readline.components(separatedBy: " ")
+//let n = Int(comp[0])!
+//let e = Int(comp[1])!
+//var get = [[Int]]()
+//let s = Int(readLine()!)!
+//for _ in 0..<e {
+//    let readline2 = readLine()!
+//    let comp2 = readline2.components(separatedBy: " ")
+//    var imsi = [Int]()
+//    for i in comp2 {
+//        imsi.append(Int(i)!)
+//    }
+//    get.append(imsi)
+//}
+//let arr = get.sorted(by: {$0[0] < $1[0]})
+////print(arr)
+////var arr = [[1,2,2],[1,3,5],[1,4,1],[2,3,3],[2,4,2],[3,2,3],[3,6,5],[4,3,3],[4,5,1],[5,3,1],[5,6,2]]
+//var dist = Array(repeating: 987654321, count: n+1)
+//dist[s] = 0
+//for i in 1..<n+1 {
+//    for j in arr {
+//        if j[0] == i {
+//            let start = j[0]
+//            let target = j[1]
+//            let amount = j[2]
+//            if dist[target] > dist[start] + amount {
+//                dist[target] = dist[start] + amount
+//            }
+////            print(j)
+//        }
+//    }
+//}
+//dist.removeFirst()
+//for d in dist {
+//    if d == 987654321 {
+//        print("INF")
+//    }
+//    else {
+//        print(d)
+//    }
+//}
+
+
 
