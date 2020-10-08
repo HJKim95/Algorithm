@@ -611,22 +611,22 @@ print(count)
 //
 //print(graph[x-1][y-1])
 
-func binarySearch(array: Array<Int>, target: Int, start: Int, end: Int) -> Int {
-    if start > end {
-        return -1
-    }
-    let mid = (start + end) / 2
-    if (mid == 0 || target > array[mid - 1]) && array[mid] == target {
-        return mid
-    }
-    
-    else if array[mid] >= target {
-        return binarySearch(array: array, target: target, start: start, end: mid - 1)
-    }
-    else {
-        return binarySearch(array: array, target: target, start: mid + 1, end: end)
-    }
-}
+//func binarySearch(array: Array<Int>, target: Int, start: Int, end: Int) -> Int {
+//    if start > end {
+//        return -1
+//    }
+//    let mid = (start + end) / 2
+//    if (mid == 0 || target > array[mid - 1]) && array[mid] == target {
+//        return mid
+//    }
+//
+//    else if array[mid] >= target {
+//        return binarySearch(array: array, target: target, start: start, end: mid - 1)
+//    }
+//    else {
+//        return binarySearch(array: array, target: target, start: mid + 1, end: end)
+//    }
+//}
 
 //let arr = [-15,-4,3,8,9,13,15]
 //var start = 0
@@ -749,5 +749,84 @@ func binarySearch(array: Array<Int>, target: Int, start: Int, end: Int) -> Int {
 //        print(d)
 //    }
 //}
+
+
+// 18405 임시 저장
+//let read = readLine()!
+//let comp = read.components(separatedBy: " ")
+//let n = Int(comp[0])!
+//let k = Int(comp[1])!
+//
+//var graph = [[Int]]()
+//
+//var queue = [[Int]]()
+//
+//for i in 0..<n {
+//    let readline = readLine()!
+//    let compo = readline.components(separatedBy: " ")
+//    var arr = [Int]()
+//    for j in 0..<compo.count {
+//        if Int(compo[j])! != 0 {
+//            queue.append([Int(compo[j])!,i,j,0])
+//        }
+//        arr.append(Int(compo[j])!)
+//    }
+//    graph.append(arr)
+//}
+//
+//queue = queue.sorted(by: {$0[0] < $1[0]})
+//
+//let readline = readLine()!
+//let compo = readline.components(separatedBy: " ")
+//let s = Int(compo[0])!
+//let x = Int(compo[1])!
+//let y = Int(compo[2])!
+//
+//
+//let dx = [-1,1,0,0]
+//let dy = [0,0,-1,1]
+//
+//
+//func dfs(virus: Int, x: Int,y: Int, time: Int) {
+//    queue.removeFirst()
+//    for i in 0..<dx.count {
+//        let nx = dx[i] + x
+//        let ny = dy[i] + y
+//        if nx > -1 && nx < n && ny > -1 && ny < n {
+//            if graph[nx][ny] == 0 {
+//                graph[nx][ny] = virus
+//                queue.append([virus,nx,ny, time+1])
+//            }
+//        }
+//    }
+//}
+//
+//while queue.count > 0 {
+//    let virus = queue[0][0]
+//    let x = queue[0][1]
+//    let y = queue[0][2]
+//    let time = queue[0][3]
+//
+//    queue.removeFirst()
+//    if queue[0][3] == s {
+//        break
+//    }
+//    for i in 0..<dx.count {
+//        let nx = dx[i] + x
+//        let ny = dy[i] + y
+//        if nx > -1 && nx < n && ny > -1 && ny < n {
+//            if graph[nx][ny] == 0 {
+//                graph[nx][ny] = virus
+//                queue.append([virus,nx,ny, time+1])
+//            }
+//        }
+//    }
+//
+//
+//}
+//
+//print(graph[x-1][y-1])
+
+
 
 
