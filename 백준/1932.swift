@@ -2,38 +2,30 @@
 //  1932.swift
 //  Algorithm_ex
 //
-//  Created by 김희중 on 2020/09/24.
+//  Created by 김희중 on 2020/10/28.
 //  Copyright © 2020 HJ. All rights reserved.
 //
 
 import Foundation
 let n = Int(readLine()!)!
-var realArr = [[Int]]()
-for _ in 0..<n {
-    let readline = readLine()!
-    let comp = readline.components(separatedBy: " ")
-    var arr = [Int]()
-    for i in 0..<comp.count {
-        let int = Int(comp[i])!
-        arr.append(int)
-    }
-    realArr.append(arr)
+var graph = Array(repeating: [Int](), count: n)
+for i in 0..<n {
+    let readline = readLine()!.components(separatedBy: " ").map(){Int(String($0))!}
+    graph[i] = readline
 }
 
-var dpArr = realArr
-for i in 1..<dpArr.count {
-    for j in 0..<dpArr[i].count {
+for i in 1..<graph.count {
+    for j in 0..<graph[i].count {
         if j == 0 {
-            dpArr[i][j] += dpArr[i-1][j]
+            graph[i][j] = graph[i-1][j] + graph[i][j]
+        }
+        else if j == graph[i].count-1 {
+            graph[i][j] = graph[i-1][j-1] + graph[i][j]
         }
         else {
-            let left = dpArr[i-1][j-1]
-            var up = 0
-            if j != dpArr[i].count - 1 {
-                up = dpArr[i-1][j]
-            }
-            dpArr[i][j] += max(left, up)
+            graph[i][j] = max(graph[i-1][j-1], graph[i-1][j]) + graph[i][j]
         }
     }
 }
-print(dpArr.last!.max()!)
+
+print(graph.last!.max()!)
